@@ -1,0 +1,51 @@
+1. Configura el código para que escuche por el puerto process.env.PORT  y la IP 0.0.0.0
+Render exige que el servicio se vincule al puerto y host anteriores para enrutar trafico.
+Ejemplo:
+
+agnostico
+const port = process.env.PORT || 3000;
+server.listen(port, '0.0.0.0', () => {}
+
+con express 
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => { }
+
+2. Construye un archivo package.json para las dependencias y los scripts del proyecto con npm init -y, y agregue un script de arranque:
+
+Ejemplo package.json:
+
+{
+  "name": "microservicio-ejemplo",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  }
+}
+
+3. Sube tu repo a GitHub/GitLab/Bitbucket.
+
+4. En Render Dashboard → New → Web Service → conecta tu repo → elige Node (runtime nativo).
+Render detecta automáticamente Node y puede hacer auto-deploy en cada push. 
+Render
++1
+
+4. Vars y build
+
+	*Deja el Start command como npm start.
+
+	*Si usas variables de entorno, añádelas en Environment. (Puedes pegarlas desde tu .env). 
+Render
+
+5. Despliega y prueba:
+
+	* Abre https://tu-servicio.onrender.com/health → debe responder OK.
+
+	* https://tu-servicio.onrender.com/suma?a=2&b=3 → { "resultado": 5 }.
+
+Nota: Render ofrece instancias Free para web services con límites; útiles para demos y proyectos personales. 
+Render
