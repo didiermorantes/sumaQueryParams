@@ -170,5 +170,11 @@ class WebServer {
 }
 
 // Instancia y arranque
-const miWebServer = new WebServer('127.0.0.1', 3002);
+// CONFIGURACION PARA 
+// Escucha en process.env.PORT en 0.0.0.0:
+// Render exige que el servicio se vincule al puerto y host anteriores para enrutar trafico.
+const direccion = '0.0.0.0';
+const puerto = process.env.PORT || 3002;
+
+const miWebServer = new WebServer(direccion , puerto);
 miWebServer.iniciarServidor();
